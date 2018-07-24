@@ -3,11 +3,15 @@
  */
 
 const Joi = require('joi') // Dependency used to validate schemas and data.
+const logger = require('./logger')
 const express = require('express')
 const app = express()
 
 // JSON Middleware to parse responses
 app.use(express.json())
+
+// Our custom middleware
+app.use(logger)
 
 function validateCustomer (customer) {
   const schema = {
