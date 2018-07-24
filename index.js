@@ -3,12 +3,23 @@
  */
 
 const Joi = require('joi') // Dependency used to validate schemas and data.
-const logger = require('./logger')
+const logger = require('./loggerMiddleware')
 const express = require('express')
 const app = express()
 
-// JSON Middleware to parse responses
+/* 
+ * Middlewares! 
+ * Note: Middlewares are attached to our express session with the use() method
+ */
+
+// Middleware to parse incoming request. 
 app.use(express.json())
+
+// Middleware to accept x-www-form-encoded
+app.use(express.urlencoded({ extended: true }))
+
+// Static files likes CSS, etc. Requires a folder
+app.use(express.static('public'))
 
 // Our custom middleware
 app.use(logger)
