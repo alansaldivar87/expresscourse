@@ -1,0 +1,20 @@
+{
+  "name": "expresscourse",
+  "version": "1.0.0",
+  "description": "Express Course",
+  "author": "Alan Saldivar",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "joi": "^13.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
