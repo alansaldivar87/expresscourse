@@ -36,11 +36,17 @@ app.get('/api/customers/:id', (req, res) => {
 
 // POST add customer
 app.post('/api/customers', (req, res) => {
-  const schema = {
-    name: Joi
+  // This is equivalent to response.error
+  const { error } =  validateCustomer(req.body)
+  if (error) return res.status(400).send(error.details[0].message)
+
+  const customer = {
+    id: customers.lenght + 1,
+    name: req.body.name
   }
+
   customers.push(customer) 
-  res.send()
+  res.send(customer)
 })
 
 // PUT update customer 'name' property
